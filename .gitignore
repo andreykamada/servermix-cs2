@@ -1,0 +1,61 @@
+# WINDOWS
+Thumbs.db
+Desktop.ini
+
+# VISUAL STUDIO / C#
+.vs/
+bin/
+obj/
+
+# COMPILED FILES
+*.dll
+*.pdb
+*.exe
+
+# LOGS
+*.log
+logs/
+
+# NODE / REACT
+node_modules/
+dist/
+build/
+
+# ENV / PRIVATE CONFIG
+.env
+.env.local
+
+config.php
+config.inc.php
+
+# DATABASE BACKUPS
+*.sql.bak
+*.bak
+
+# COMPRESSED FILES
+*.zip
+*.rar
+*.7z
+
+# CACHE / TEMP
+cache/
+temp/
+tmp/
+
+# STEAM / CS2 SERVER
+steamapps/
+game/csgo/maps/
+game/csgo/logs/
+game/csgo/downloads/
+
+# MATCHZY / GENERATED
+matchzy_logs/
+addons/metamod/bin/
+
+# XAMPP
+xampp/
+apache/
+mysql/
+
+# OS GENERATED
+.DS_Store

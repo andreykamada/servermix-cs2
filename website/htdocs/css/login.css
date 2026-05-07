@@ -1,0 +1,316 @@
+form {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    background: linear-gradient(45deg, black, var(--main-color));
+    color: white;
+    font-weight: lighter;
+}
+
+.main-btn {
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+.main-btn svg {
+    width: 20px;
+}
+
+h1 {
+    font-size: 80px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+h1:hover {
+    background: var(--main-color);
+}
+
+h1 a {
+    background: none;
+    text-decoration: none;
+    transition: .5s;
+}
+
+h1 a:hover,
+h1 a:focus-visible {
+    background: var(--main-color);
+    color: white;
+}
+
+h1:hover {
+    background: var(--main-color);
+    color: white;
+}
+
+h3 {
+    text-align: center;
+}
+
+@media (width <= 700px) {
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 15px;
+    }
+}
+/* =========================
+   LOGIN PAGE - CS2 STYLE
+========================= */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    background:
+        radial-gradient(circle at top, #172033 0%, #0b0e13 45%, #020617 100%);
+
+    color: #fff;
+    font-family: Inter, system-ui, Arial, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-wrapper,
+.login-box,
+.index-box,
+.home-box {
+    width: min(92vw, 720px);
+
+    padding: 44px 38px;
+
+    background: linear-gradient(135deg, rgba(20,31,50,.96), rgba(8,12,22,.98));
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    text-align: center;
+}
+
+.login-wrapper h1,
+.login-box h1,
+.index-box h1,
+.home-box h1 {
+    margin: 10px 0 12px;
+
+    color: #fff;
+
+    font-size: clamp(42px, 7vw, 84px);
+    font-weight: 900;
+    line-height: .95;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 4px 18px rgba(0,0,0,.45);
+}
+
+.login-wrapper h2,
+.login-box h2,
+.index-box h2,
+.home-box h2 {
+    margin: 0 0 8px;
+
+    color: #f4c542;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.login-wrapper p,
+.login-box p,
+.index-box p,
+.home-box p {
+    margin: 0 auto 30px;
+
+    max-width: 520px;
+
+    color: #9ca7b8;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.login-wrapper a,
+.login-box a,
+.index-box a,
+.home-box a,
+.steam-login,
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 52px;
+
+    padding: 0 26px;
+
+    background: linear-gradient(90deg, #f4c542, #ff9f1a);
+    color: #111 !important;
+
+    border: 0;
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 30px rgba(255,159,26,.22),
+        0 10px 30px rgba(0,0,0,.35);
+
+    cursor: pointer;
+    transition: .22s ease;
+}
+
+.login-wrapper a:hover,
+.login-box a:hover,
+.index-box a:hover,
+.home-box a:hover,
+.steam-login:hover,
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 26px rgba(244,197,66,.25),
+        0 14px 34px rgba(0,0,0,.45);
+}
+body.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at top, #172033 0%, #0b0e13 48%, #05070c 100%);
+}
+
+.login-box {
+    width: min(92vw, 620px);
+    min-height: unset;
+
+    padding: 54px 46px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(180deg, rgba(18,27,44,.96), rgba(7,11,20,.98));
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 26px;
+
+    box-shadow:
+        0 28px 80px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.login-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(244,197,66,.1);
+    border: 1px solid rgba(244,197,66,.22);
+
+    color: #f4c542;
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.login-box h1 {
+    margin: 0 0 20px;
+}
+
+.login-box h1 a {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 950;
+    line-height: .95;
+    letter-spacing: -2px;
+
+    text-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+.login-box p {
+    max-width: 500px;
+    margin: 0 auto 34px;
+
+    color: #c5d0e0;
+
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 1.7;
+
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+.steam-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 52px;
+    padding: 0 30px;
+
+    border: 0;
+    border-radius: 14px;
+
+    background: linear-gradient(90deg, #f4c542, #ff9f1a);
+    color: #111;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px rgba(255,159,26,.18),
+        0 8px 26px rgba(0,0,0,.35);
+
+    transition: .22s ease;
+}
+
+.steam-login:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 26px rgba(244,197,66,.22),
+        0 14px 34px rgba(0,0,0,.45);
+}
+
+@media (max-width: 700px) {
+    .login-box {
+        padding: 42px 26px;
+    }
+
+    .login-box h1 a {
+        font-size: 40px;
+    }
+}

@@ -1,0 +1,14 @@
+{
+	"menumanager.footer": "W - cima S - baixo E - selecionar R - sair",
+"menumanager.select_type": "Escolha o menu",
+"menumanager.console": "Console",
+"menumanager.chat": "Menu de chat",
+"menumanager.center": "Centro (Padrão)",
+"menumanager.control": "Centro (Controle)",
+"menumanager.metamod": "Meta-menu (Chat|Controle)",
+"menumanager.selected_type": "Tipo de menu selecionado:",
+"menumanager.back": "Voltar",
+"menumanager.empty": "Nada para exibir",
+"menumanager.selected_item": "► [MENUITEM] ◄",
+"menumanager.disabled_item": "<font color='#aaaaaa'>[MENUITEM]</font>"
+}
