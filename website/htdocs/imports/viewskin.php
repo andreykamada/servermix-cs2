@@ -364,20 +364,23 @@ let saved_ct = `<?= $saved_ct ? json_encode($saved_ct) : '0'; ?>`;
      data-name="<?= $weapon['weapon_name']; ?>">
 
 
-   <div style="margin:80px 0 20px;display:flex;gap:12px;flex-wrap:wrap;">
+  <div class="view-top-actions">
 
     <button
         onclick="history.back()"
-        class="main-btn btn-yellow"
+        class="view-action-btn view-back-skins"
     >
         ← Voltar para skins
     </button>
 
     <button
-        onclick="window.location.href='<?= GetPrefix(); ?>skins/'"
-        class="main-btn btn-dark"
+        onclick="
+            const team = localStorage.getItem('selectedTeam') || 'TR';
+            window.location.href='<?= GetPrefix(); ?>skins/' + team;
+        "
+        class="view-action-btn view-back-loadout"
     >
-        🎯 Voltar para Loadout
+        ← Voltar para Loadout atual
     </button>
 
 </div>

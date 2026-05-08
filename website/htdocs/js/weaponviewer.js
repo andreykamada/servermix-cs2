@@ -217,8 +217,11 @@ document.addEventListener('click', async function(e) {
                 }
             }
 
-            AddMessage('Skin salva! Digite !wp no chat do servidor para atualizar a skin sem reconectar.', 'success', 10000);
-            e.target.classList.add('applied');
+AddMessage(`
+    <strong>Skin aplicada com sucesso!</strong>
+    <small>Digite <b>!wp</b> no servidor para atualizar sem reconectar.</small>
+`, 'success', 10000);   
+e.target.classList.add('applied');
         }catch(err) {
             AddMessage(`Error: ${err.name}<br>${err.message}`, 'fail', 10000);
         }
@@ -901,10 +904,16 @@ function AddMessage(msgContent = '', type = 'default', timeout = 3000) {
     if(!msgContent || msgContent == '' || typeof(msgContent) !== 'string') {return;}
 
     const msg = document.createElement('span');
-    msg.classList.add('msg');
-    msg.style.setProperty('--timeout', `${timeout}ms`);
+msg.classList.add('msg');
 
-    const content = document.createElement('p');
+if (type) {
+    msg.classList.add(type);
+}
+
+msg.style.setProperty('--timeout', `${timeout}ms`);
+
+    const content = document.createElement('div');
+    content.classList.add('msg-content');
     content.innerHTML = msgContent;
 
     let svg = '';
@@ -913,7 +922,7 @@ function AddMessage(msgContent = '', type = 'default', timeout = 3000) {
             svg = '<svg viewBox="0 0 512 512"><path d="M255.997,460.351c112.685,0,204.355-91.668,204.355-204.348S368.682,51.648,255.997,51.648  c-112.68,0-204.348,91.676-204.348,204.355S143.317,460.351,255.997,460.351z M255.997,83.888  c94.906,0,172.123,77.209,172.123,172.115c0,94.898-77.217,172.117-172.123,172.117c-94.9,0-172.108-77.219-172.108-172.117  C83.888,161.097,161.096,83.888,255.997,83.888z"/><path d="M172.077,341.508c3.586,3.523,8.25,5.27,12.903,5.27c4.776,0,9.54-1.84,13.151-5.512l57.865-58.973l57.878,58.973  c3.609,3.672,8.375,5.512,13.146,5.512c4.658,0,9.316-1.746,12.902-5.27c7.264-7.125,7.369-18.793,0.242-26.051l-58.357-59.453  l58.357-59.461c7.127-7.258,7.021-18.92-0.242-26.047c-7.252-7.123-18.914-7.018-26.049,0.24l-57.878,58.971l-57.865-58.971  c-7.135-7.264-18.797-7.363-26.055-0.24c-7.258,7.127-7.369,18.789-0.236,26.047l58.351,59.461l-58.351,59.453  C164.708,322.715,164.819,334.383,172.077,341.508z"/></svg>';
             break;
         case 'success':
-            svg = '<svg viewBox="0 0 32 32"><path d="M16,1A15,15,0,1,0,31,16,15,15,0,0,0,16,1Zm0,28.33A13.33,13.33,0,1,1,29.33,16,13.35,13.35,0,0,1,16,29.33Z"/><polygon points="13.91 18.59 10.71 15.39 9.29 16.8 13.91 21.41 23.61 11.71 22.2 10.29 13.91 18.59"/></svg>';
+            svg = '';
             break;
         case 'warning':
             svg = '<svg viewBox="0 0 24 24"><path d="M21.171,15.398l-5.912-9.854C14.483,4.251,13.296,3.511,12,3.511s-2.483,0.74-3.259,2.031l-5.912,9.856  c-0.786,1.309-0.872,2.705-0.235,3.83C3.23,20.354,4.472,21,6,21h12c1.528,0,2.77-0.646,3.406-1.771  C22.043,18.104,21.957,16.708,21.171,15.398z M12,17.549c-0.854,0-1.55-0.695-1.55-1.549c0-0.855,0.695-1.551,1.55-1.551  s1.55,0.696,1.55,1.551C13.55,16.854,12.854,17.549,12,17.549z M13.633,10.125c-0.011,0.031-1.401,3.468-1.401,3.468  c-0.038,0.094-0.13,0.156-0.231,0.156s-0.193-0.062-0.231-0.156l-1.391-3.438C10.289,9.922,10.25,9.712,10.25,9.5  c0-0.965,0.785-1.75,1.75-1.75s1.75,0.785,1.75,1.75C13.75,9.712,13.711,9.922,13.633,10.125z"/></svg>';

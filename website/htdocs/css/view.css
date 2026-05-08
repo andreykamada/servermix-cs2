@@ -1,84 +1,20 @@
-/* BASE */
+/* =========================
+   BASE
+========================= */
+
 body {
     background: #0e0e0e;
     color: #fff;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 
-/* HEADER */
-header {
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.mainbox {
+    padding-top: 90px;
 }
 
-header h2 {
-    background: rgba(255,255,255,0.1);
-    padding: 6px 16px;
-    border-radius: 8px;
-    color: #ffcc00;
-}
-
-/* LAYOUT */
-.view-container {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 30px;
-    padding: 100px 40px;
-}
-
-/* LEFT */
-.preview-box {
-    background: #111;
-    border-radius: 16px;
-    height: 500px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* CENTRALIZAÇÃO PERFEITA */
-#previewImg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#previewImg img {
-    max-width: 90%;
-    max-height: 420px;
-}
-
-/* RIGHT */
-.settings-card {
-    background: #111;
-    padding: 20px;
-    border-radius: 16px;
-}
-
-/* INPUT */
-.input {
-    margin-bottom: 15px;
-}
-
-select {
-    width: 100%;
-    padding: 8px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
-    border-radius: 6px;
-}
-
-/* BOTÕES */
-.apply {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
+/* =========================
+   BOTÕES GERAIS
+========================= */
 
 .main-btn {
     flex: 1;
@@ -90,98 +26,10 @@ select {
     transition: 0.2s;
 }
 
-/* CORES FIXAS CS2 */
-.main-btn.terror {
-    background: #ff7a00;
-    color: #000;
-}
-
-.main-btn.counter-terror {
-    background: #00aaff;
-    color: #000;
-}
-
-/* CLICK */
-.main-btn.clicked {
-    transform: scale(1.08);
-}
-
-/* APLICADO */
-.main-btn.applied {
-    background: #2ecc71 !important;
-}
-
-/* TOAST */
-#toast-container {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-}
-
-.toast {
-    background: #1a1a1a;
-    border-left: 4px solid #2ecc71;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border-radius: 6px;
-    animation: slide 0.3s, fade 0.5s 2.5s forwards;
-}
-
-@keyframes slide {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
-}
-
-@keyframes fade {
-    to { opacity: 0; transform: translateX(100%); }
-}
-
-/* RESPONSIVO */
-@media(max-width: 900px){
-    .view-container {
-        grid-template-columns: 1fr;
-    }
-}
-/* =========================
-   FEEDBACK VISUAL
-========================= */
-
-#messages {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.msg {
-    background: #111;
-    border-left: 4px solid #ffcc00;
-    padding: 10px 15px;
-    border-radius: 6px;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: 0.3s;
-    font-size: 14px;
-}
-
-.msg.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.msg.success {
-    border-color: #2ecc71;
-}
-
-/* BOTÃO CLICK */
 .main-btn.clicked {
     transform: scale(0.95);
 }
 
-/* ESTADO FIXO (não muda cor aleatória) */
 .main-btn.terror {
     background: #ff8800;
     color: #000;
@@ -193,18 +41,15 @@ select {
 }
 
 .main-btn.applied {
+    background: linear-gradient(90deg, #32d27a, #12b76a) !important;
+    color: #07130c !important;
     box-shadow: 0 0 10px rgba(46, 204, 113, 0.6);
-    border: 2px solid #2ecc71;
 }
+
 /* =========================
-   VIEW SKIN - LAYOUT PREMIUM
+   HEADER DA SKIN
 ========================= */
 
-.mainbox {
-    padding-top: 90px;
-}
-
-/* HEADER DA SKIN */
 .mainbox > .container:first-of-type {
     max-width: 1500px;
     margin: 0 auto;
@@ -243,41 +88,15 @@ select {
     font-weight: 600;
 }
 
-/* ÁREA PRINCIPAL */
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
 .mainbox > .container:nth-of-type(2) {
     max-width: 1500px;
     margin-inline: auto;
 }
 
-/* PREVIEW CARD */
-#threejsArea,
-#previewImg {
-    width: 100%;
-    min-height: 520px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#previewImg img {
-    max-width: 78%;
-    max-height: 420px;
-
-    object-fit: contain;
-
-    filter: drop-shadow(0 30px 35px rgba(0,0,0,.55));
-}
-
-#previewImg {
-    background:
-        radial-gradient(circle at center, rgba(255,255,255,.045), transparent 55%),
-        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.005));
-
-    border-radius: 18px;
-}
-
-/* CARD DO PREVIEW */
 .mainbox > .container:nth-of-type(2) > div > div:first-child > div {
     background: rgba(8, 10, 14, .92) !important;
     border: 1px solid rgba(255,255,255,.06);
@@ -288,20 +107,50 @@ select {
         0 18px 45px rgba(0,0,0,.35);
 }
 
-/* PAINEL CONFIG */
-#settings > div {
-    background: rgba(8, 10, 14, .94) !important;
+/* =========================
+   PREVIEW
+========================= */
 
-    border: 1px solid rgba(255,255,255,.08);
+#threejsArea,
+#previewImg {
+    width: 100%;
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#previewImg {
+    background:
+        radial-gradient(circle at center, rgba(255,255,255,.045), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.005));
+
+    border-radius: 18px;
+}
+
+#previewImg img {
+    max-width: 78%;
+    max-height: 420px;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 35px rgba(0,0,0,.55));
+}
+
+/* =========================
+   PAINEL CONFIG
+========================= */
+
+#settings > div {
+    background: rgba(10,15,25,.92) !important;
+    border: 1px solid rgba(255,255,255,.06) !important;
     border-radius: 20px !important;
 
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.38);
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    backdrop-filter: blur(12px);
 
     padding: 24px !important;
 }
 
-/* TÍTULO CONFIG */
 #settings .title {
     margin-bottom: 22px;
 }
@@ -313,33 +162,34 @@ select {
 
     font-size: 18px;
     font-weight: 900;
-
     color: #fff;
 }
 
-/* INPUTS */
 #settings .input {
     margin-bottom: 18px;
 }
 
-#settings .input label {
-    margin-bottom: 7px;
+#settings .input label,
+.box-col label {
+    display: block;
+    margin-bottom: 8px;
 
     font-size: 13px;
     font-weight: 700;
-
-    color: rgba(255,255,255,.62);
+    color: #9ca7b8;
 }
 
-/* SELECT / INPUT */
+/* =========================
+   INPUTS / SELECTS
+========================= */
+
 #settings select,
 #settings input[type="text"],
 #settings input[type="number"] {
-    height: 46px;
+    height: 44px;
 
-    background: rgba(15,23,42,.88) !important;
-
-    border: 1px solid rgba(255,255,255,.09) !important;
+    background: #091120 !important;
+    border: 1px solid #1f2d47 !important;
     border-radius: 12px !important;
 
     color: #fff !important;
@@ -348,7 +198,6 @@ select {
     font-weight: 700;
 
     padding: 0 14px !important;
-
     outline: none !important;
 
     transition: .22s ease;
@@ -361,15 +210,29 @@ select {
     box-shadow: 0 0 0 3px rgba(244,197,66,.12);
 }
 
-/* CHECKBOXES */
+#settings .box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#settings .box input[type="text"],
+#settings .box input[type="number"] {
+    flex: 1;
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+
 #settings input[type="checkbox"] {
+    min-width: 42px;
     width: 42px !important;
-    height: 34px !important;
+    height: 42px !important;
 
-    background: rgba(15,23,42,.9) !important;
-
-    border: 1px solid rgba(255,255,255,.1) !important;
-    border-radius: 10px !important;
+    background: #121a2a !important;
+    border: 1px solid #25324a !important;
+    border-radius: 12px !important;
 
     cursor: pointer;
 }
@@ -379,29 +242,28 @@ select {
     border-color: var(--cs-yellow, #f4c542) !important;
 }
 
-/* BOXES COM CHECKBOX + INPUT */
-#settings .box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+/* =========================
+   DESGASTE CUSTOM
+========================= */
 
-#settings .box input[type="number"],
-#settings .box input[type="text"] {
-    flex: 1;
-}
-
-/* RANGE */
 #customwear {
+    display: none;
     width: 100%;
     margin-top: 12px;
     accent-color: var(--cs-yellow, #f4c542);
 }
 
-/* STATTRAK */
+#wear select:has(option[value="custom"]:checked) + #customwear {
+    display: block;
+}
+
+/* =========================
+   STATTRAK
+========================= */
+
 #stattrak {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    align-items: stretch;
     gap: 14px;
 
     padding: 14px;
@@ -413,30 +275,36 @@ select {
     margin-bottom: 18px;
 }
 
+#stattrak .input {
+    flex: 1;
+}
+
 #stattrak p {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #091120;
+    border: 1px solid #1f2d47;
+    border-radius: 12px;
+
     font-size: 18px;
     font-weight: 900;
     color: #fff;
 }
 
-/* ADDONS */
+/* =========================
+   STICKERS / KEYCHAIN
+========================= */
+
 .addons {
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
 
     margin: 18px 0;
-}
-
-.box-col label {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    color: rgba(255,255,255,.7);
 }
 
 .stickers,
@@ -456,7 +324,6 @@ select {
     justify-content: center;
 
     background: rgba(15,23,42,.9);
-
     border: 1px solid rgba(255,255,255,.1);
     border-radius: 10px;
 
@@ -464,7 +331,6 @@ select {
     font-weight: 900;
 
     cursor: pointer;
-
     transition: .2s ease;
 }
 
@@ -474,224 +340,38 @@ select {
     transform: translateY(-2px);
 }
 
+.stickers button.active-slot,
+.keychains button.active-slot {
+    border-color: var(--team-color, #f4c542);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--team-color, #f4c542) 45%, transparent);
+}
+
 .stickers img,
-.keychains img {
-    max-width: 90%;
-    max-height: 90%;
+.keychains img,
+.stickers button.filled img,
+.keychains button.filled img {
+    max-width: 28px;
+    max-height: 28px;
     object-fit: contain;
 }
 
-/* BOTÕES APLICAR */
-.apply {
-    display: flex;
-    gap: 12px;
+/* =========================
+   PICKER DE ADESIVOS / CHAVEIROS
+========================= */
 
-    margin-top: 20px;
-}
-
-.apply .main-btn {
-    width: 100%;
-    height: 52px;
-
-    border-radius: 14px;
-
-    font-size: 15px;
-    font-weight: 900;
-
-    color: #111 !important;
-
-    background: linear-gradient(90deg, #f4c542, #ff9f1a) !important;
-
-    box-shadow:
-        0 12px 26px rgba(255,159,26,.22);
-
-    transition: .22s ease;
-}
-
-.apply .main-btn:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 16px 34px rgba(255,159,26,.34);
-}
-
-.apply .main-btn.applied {
-    background: linear-gradient(90deg, #32d27a, #12b76a) !important;
-    color: #07130c !important;
-}
-
-/* BOTÃO WP */
-.wp-refresh-btn,
-.server-refresh-btn {
-    background: rgba(15,23,42,.95) !important;
-    border: 1px solid rgba(255,255,255,.1) !important;
-    border-radius: 12px !important;
-
-    color: #fff !important;
-    font-weight: 800;
-
-    box-shadow: 0 10px 24px rgba(0,0,0,.28);
-}
-
-/* RESPONSIVO */
-@media(max-width: 1000px) {
-    .mainbox > .container:nth-of-type(2) > div {
-        flex-direction: column;
-    }
-
-    #threejsArea,
-    #previewImg {
-        min-height: 360px;
-    }
-
-    #previewImg img {
-        max-width: 90%;
-        max-height: 300px;
-    }
-
-    #settings {
-        width: 100%;
-    }
-}
-#viewselect {
-    display: none !important;
-}
-/* =================================
-   ESCONDE SLIDER CUSTOM WEAR
-================================= */
-
-#customwear {
-    display: none;
-}
-
-#wear select:has(option[value="custom"]:checked) + #customwear {
-    display: block;
-}
-/* =================================
-   CONFIG PANEL
-================================= */
-
-#settings .input {
-    margin-bottom: 18px;
-}
-
-#settings .input label {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    color: #9ca7b8;
-}
-
-/* =================================
-   BOX CHECK + INPUT
-================================= */
-
-#settings .box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* checkbox */
-
-#settings .box input[type="checkbox"] {
-    min-width: 42px;
-    width: 42px;
-    height: 42px;
-
-    border-radius: 12px;
-
-    background: #121a2a;
-    border: 1px solid #25324a;
-
-    cursor: pointer;
-}
-
-/* inputs */
-
-#settings .box input[type="text"],
-#settings .box input[type="number"] {
-    flex: 1;
-    height: 42px;
-
-    background: #091120;
-
-    border: 1px solid #1f2d47;
-    border-radius: 12px;
-
-    padding: 0 14px;
-
-    color: white;
-}
-
-/* =================================
-   STATTRAK BOX
-================================= */
-
-#stattrak {
-    display: flex;
-    align-items: stretch;
-    gap: 14px;
-}
-
-#stattrak .input {
-    flex: 1;
-}
-
-#stattrak p {
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #091120;
-
-    border: 1px solid #1f2d47;
-    border-radius: 12px;
-
-    font-weight: 700;
-    color: white;
-}
-
-/* =================================
-   SELECT
-================================= */
-
-#settings select {
-    height: 44px;
-
-    background: #091120;
-
-    border: 1px solid #1f2d47;
-    border-radius: 12px;
-
-    color: white;
-}
-
-/* =================================
-   PANEL VISUAL
-================================= */
-
-#settings > div {
-    background: rgba(10,15,25,.92) !important;
-
-    border: 1px solid rgba(255,255,255,.06);
-
-    box-shadow:
-        0 10px 40px rgba(0,0,0,.35);
-
-    backdrop-filter: blur(12px);
-}
 .addon-picker-section {
+    display: none;
+
     margin-top: 30px;
     padding: 24px;
+
     background: rgba(15, 23, 42, .72);
     border: 1px solid rgba(255,255,255,.08);
     border-radius: 22px;
+}
+
+.addon-picker-section.active {
+    display: block;
 }
 
 .addon-picker-header {
@@ -714,8 +394,10 @@ select {
     grid-template-columns: repeat(auto-fill, minmax(115px, 115px));
     gap: 14px;
     justify-content: start;
+
     max-height: 520px;
     overflow-y: auto;
+
     padding-right: 8px;
 }
 
@@ -762,24 +444,551 @@ select {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.addon-picker-section {
-    display: none;
-    margin-top: 30px;
+
+/* =========================
+   BOTÕES APLICAR
+========================= */
+
+.apply {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.addon-picker-section.active {
-    display: block;
+.apply .main-btn {
+    width: 100%;
+    height: 52px;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    color: #111 !important;
+    background: linear-gradient(90deg, #f4c542, #ff9f1a) !important;
+
+    box-shadow: 0 12px 26px rgba(255,159,26,.22);
+    transition: .22s ease;
 }
 
+.apply .main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(255,159,26,.34);
+}
+
+.apply .main-btn.applied {
+    background: linear-gradient(90deg, #32d27a, #12b76a) !important;
+    color: #07130c !important;
+}
+
+/* =========================
+   BOTÃO WP
+========================= */
+
+.wp-refresh-btn,
+.server-refresh-btn {
+    background: rgba(15,23,42,.95) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    border-radius: 12px !important;
+
+    color: #fff !important;
+    font-weight: 800;
+
+    box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+
+/* =========================
+   MENSAGEM DE SUCESSO PREMIUM
+========================= */
+
+#messages {
+    position: fixed !important;
+    top: 115px !important;
+    right: 32px !important;
+    z-index: 999999 !important;
+}
+
+#messages .msg.success,
+#messages .msg.success.show {
+    width: 100%;
+    max-width: 470px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+
+    padding: 18px 22px !important;
+
+    background:
+        linear-gradient(135deg, rgba(6,15,14,.97), rgba(7,17,22,.96)) !important;
+
+    border: 1px solid rgba(46,204,113,.55) !important;
+    border-radius: 20px !important;
+
+    color: #fff !important;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.38),
+        0 0 30px rgba(46,204,113,.10) !important;
+
+    backdrop-filter: blur(14px);
+
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* remove ícones duplicados */
+#messages .msg.success svg,
+#messages .msg.success > p > svg {
+    display: none !important;
+}
+
+/* ícone */
+#messages .msg.success::before {
+    content: "✓" !important;
+
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background:
+        linear-gradient(135deg, #34f27b, #10c763) !important;
+
+    color: #07140d !important;
+
+    font-size: 42px !important;
+    font-weight: 900 !important;
+
+    box-shadow:
+        0 0 20px rgba(46,204,113,.45),
+        inset 0 -5px 0 rgba(0,0,0,.12) !important;
+}
+
+/* conteúdo */
+#messages .msg.success p,
+#messages .msg.success .msg-content {
+    margin: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* título */
+#messages .msg.success strong {
+    display: block !important;
+
+    color: #ffffff !important;
+
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+}
+
+/* descrição */
+#messages .msg.success small {
+    display: block !important;
+
+    margin-top: 6px !important;
+
+    color: rgba(255,255,255,.72) !important;
+
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+}
+
+/* destaque do !wp */
+#messages .msg.success small b {
+    color: #22d36b !important;
+}
+
+/* =========================
+   UTILITÁRIOS
+========================= */
+
+#viewselect {
+    display: none !important;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width: 1000px) {
+    .mainbox > .container:nth-of-type(2) > div {
+        flex-direction: column;
+    }
+
+    #threejsArea,
+    #previewImg {
+        min-height: 360px;
+    }
+
+    #previewImg img {
+        max-width: 90%;
+        max-height: 300px;
+    }
+
+    #settings {
+        width: 100%;
+    }
+
+    #messages {
+        top: 80px !important;
+        right: 16px !important;
+        left: 16px !important;
+    }
+
+    #messages .msg.success,
+    #messages .msg.success.show {
+        max-width: none !important;
+    }
+}
+/* =========================
+   CORES DINÂMICAS TR / CT
+========================= */
+
+body.team-tr {
+    --view-accent: #ff9f1a;
+    --view-accent-2: #ff5c1a;
+    --view-accent-soft: rgba(255, 159, 26, .18);
+    --view-accent-border: rgba(255, 159, 26, .55);
+    --view-accent-glow: rgba(255, 159, 26, .28);
+}
+
+body.team-ct {
+    --view-accent: #27c8ff;
+    --view-accent-2: #2563eb;
+    --view-accent-soft: rgba(39, 200, 255, .16);
+    --view-accent-border: rgba(39, 200, 255, .55);
+    --view-accent-glow: rgba(39, 200, 255, .28);
+}
+
+/* fallback */
+body {
+    --view-accent: #ff9f1a;
+    --view-accent-2: #ff5c1a;
+    --view-accent-soft: rgba(255, 159, 26, .18);
+    --view-accent-border: rgba(255, 159, 26, .55);
+    --view-accent-glow: rgba(255, 159, 26, .28);
+}
+
+/* painel */
+#settings > div {
+    border-color: var(--view-accent-border) !important;
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.38),
+        0 0 34px var(--view-accent-glow) !important;
+}
+
+/* título */
+#settings .title span {
+    text-shadow: 0 0 18px var(--view-accent-glow);
+}
+
+/* selects e inputs focados */
+#settings select:focus,
+#settings input[type="text"]:focus,
+#settings input[type="number"]:focus {
+    border-color: var(--view-accent) !important;
+    box-shadow: 0 0 0 3px var(--view-accent-soft) !important;
+}
+
+/* checks */
+#settings input[type="checkbox"]:checked {
+    background: var(--view-accent-soft) !important;
+    border-color: var(--view-accent) !important;
+    box-shadow: 0 0 14px var(--view-accent-glow);
+}
+
+/* stickers/keychain */
+.stickers button:hover,
+.keychains button:hover,
 .stickers button.active-slot,
 .keychains button.active-slot {
-    border-color: var(--team-color, #f4c542);
-    box-shadow: 0 0 14px color-mix(in srgb, var(--team-color, #f4c542) 45%, transparent);
+    border-color: var(--view-accent) !important;
+    box-shadow: 0 0 14px var(--view-accent-glow) !important;
 }
 
-.stickers button.filled img,
-.keychains button.filled img {
-    max-width: 28px;
-    max-height: 28px;
-    object-fit: contain;
+/* picker cards */
+.addon-picker-card:hover {
+    border-color: var(--view-accent) !important;
+    box-shadow: 0 0 22px var(--view-accent-glow) !important;
+}
+
+/* botão aplicar padrão */
+.apply .main-btn {
+    background: linear-gradient(
+        90deg,
+        var(--view-accent),
+        var(--view-accent-2)
+    ) !important;
+
+    box-shadow: 0 14px 30px var(--view-accent-glow) !important;
+}
+
+/* botão T sempre laranja */
+.apply .main-btn.terror {
+    background: linear-gradient(90deg, #ffb020, #ff6b1a) !important;
+}
+
+/* botão CT sempre azul */
+.apply .main-btn.counter-terror {
+    background: linear-gradient(90deg, #27c8ff, #2563eb) !important;
+}
+/* =========================
+   VIEW MODERNO TR / CT
+========================= */
+
+body.team-tr {
+    --view-accent: #ff9f1a;
+    --view-accent-2: #ff5c1a;
+    --view-accent-soft: rgba(255, 159, 26, .10);
+    --view-accent-border: rgba(255, 159, 26, .45);
+    --view-accent-glow: rgba(255, 159, 26, .20);
+}
+
+body.team-ct {
+    --view-accent: #27c8ff;
+    --view-accent-2: #2563eb;
+    --view-accent-soft: rgba(39, 200, 255, .14);
+    --view-accent-border: rgba(39, 200, 255, .65);
+    --view-accent-glow: rgba(39, 200, 255, .32);
+}
+
+/* fallback */
+body {
+    --view-accent: #ff9f1a;
+    --view-accent-2: #ff5c1a;
+    --view-accent-soft: rgba(255, 159, 26, .14);
+    --view-accent-border: rgba(255, 159, 26, .65);
+    --view-accent-glow: rgba(255, 159, 26, .32);
+}
+
+/* painel configurar */
+#settings > div {
+    background:
+        radial-gradient(circle at top left, var(--view-accent-soft), transparent 42%),
+        linear-gradient(180deg, rgba(8, 14, 24, .97), rgba(5, 9, 16, .96)) !important;
+
+    border: 1px solid var(--view-accent-border) !important;
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.42),
+        0 0 36px var(--view-accent-glow),
+        inset 0 0 60px rgba(255,255,255,.015) !important;
+}
+
+/* título */
+#settings .title span {
+    color: #fff !important;
+    text-shadow: 0 0 18px var(--view-accent-glow);
+}
+
+#settings .title span::first-letter {
+    color: var(--view-accent);
+}
+
+/* labels */
+#settings .input label,
+.box-col label {
+    color: rgba(225, 235, 255, .72) !important;
+}
+
+/* select/input */
+#settings select,
+#settings input[type="text"],
+#settings input[type="number"] {
+    background:
+        linear-gradient(180deg, rgba(15, 25, 42, .96), rgba(8, 14, 25, .96)) !important;
+
+    border: 1px solid rgba(255,255,255,.08) !important;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,.22),
+        0 0 0 rgba(0,0,0,0) !important;
+}
+
+#settings select:hover,
+#settings input[type="text"]:hover,
+#settings input[type="number"]:hover {
+    border-color: var(--view-accent-border) !important;
+}
+
+#settings select:focus,
+#settings input[type="text"]:focus,
+#settings input[type="number"]:focus {
+    border-color: var(--view-accent) !important;
+    box-shadow:
+        0 0 0 3px var(--view-accent-soft),
+        0 0 18px var(--view-accent-glow) !important;
+}
+
+/* checkboxes */
+#settings input[type="checkbox"] {
+    background:
+        linear-gradient(180deg, rgba(16, 27, 46, .98), rgba(8, 14, 25, .98)) !important;
+
+    border: 1px solid rgba(255,255,255,.12) !important;
+
+    box-shadow:
+        inset 0 0 14px rgba(0,0,0,.35),
+        0 0 0 rgba(0,0,0,0) !important;
+}
+
+#settings input[type="checkbox"]:hover,
+#settings input[type="checkbox"]:checked {
+    border-color: var(--view-accent) !important;
+    background: var(--view-accent-soft) !important;
+
+    box-shadow:
+        0 0 16px var(--view-accent-glow),
+        inset 0 0 18px rgba(255,255,255,.04) !important;
+}
+
+/* stattrak box */
+#stattrak {
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.035), rgba(255,255,255,.015)) !important;
+
+    border: 1px solid rgba(255,255,255,.08) !important;
+
+    box-shadow:
+        inset 0 0 35px rgba(0,0,0,.18),
+        0 0 18px rgba(0,0,0,.18);
+}
+
+#stattrak:hover {
+    border-color: var(--view-accent-border) !important;
+}
+
+/* stickers e chaveiro */
+.stickers button,
+.keychains button {
+    background:
+        linear-gradient(180deg, rgba(16, 27, 46, .98), rgba(8, 14, 25, .98)) !important;
+
+    border: 1px solid rgba(255,255,255,.12) !important;
+
+    box-shadow:
+        inset 0 0 14px rgba(0,0,0,.3),
+        0 8px 18px rgba(0,0,0,.18);
+}
+
+.stickers button:hover,
+.keychains button:hover,
+.stickers button.active-slot,
+.keychains button.active-slot,
+.stickers button.filled,
+.keychains button.filled {
+    border-color: var(--view-accent) !important;
+
+    box-shadow:
+        0 0 16px var(--view-accent-glow),
+        inset 0 0 18px rgba(255,255,255,.035) !important;
+}
+
+/* botão aplicar */
+.apply .main-btn {
+    background:
+        linear-gradient(90deg, var(--view-accent), var(--view-accent-2)) !important;
+
+    color: #06101a !important;
+
+    box-shadow:
+        0 14px 30px var(--view-accent-glow),
+        inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.apply .main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 18px 40px var(--view-accent-glow),
+        inset 0 1px 0 rgba(255,255,255,.26) !important;
+}
+
+/* mantém identidade dos botões quando aparecem os dois */
+.apply .main-btn.terror {
+    background: linear-gradient(90deg, #ffb020, #ff6b1a) !important;
+}
+
+.apply .main-btn.counter-terror {
+    background: linear-gradient(90deg, #27c8ff, #2563eb) !important;
+}
+/* =========================
+   BOTÕES TOPO VIEW SKIN
+========================= */
+
+.view-top-actions {
+    max-width: 1500px;
+    margin: 80px auto 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.view-action-btn {
+    height: 52px;
+    padding: 0 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 14px;
+
+    background: rgba(15,23,42,.92);
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 0 12px 28px rgba(0,0,0,.30);
+    transition: .22s ease;
+}
+
+.view-action-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--view-accent);
+    box-shadow:
+        0 16px 34px rgba(0,0,0,.34),
+        0 0 18px var(--view-accent-glow);
+}
+
+.view-back-skins {
+    background: linear-gradient(
+        90deg,
+        var(--view-accent),
+        var(--view-accent-2)
+    );
+
+    color: #071018;
+    border-color: transparent;
+}
+
+.view-back-loadout {
+    background: rgba(15,23,42,.92);
+    color: #fff;
+}
+
+@media(max-width: 800px) {
+    .view-top-actions {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 40px;
+    }
+
+    .view-action-btn {
+        width: 100%;
+    }
 }
