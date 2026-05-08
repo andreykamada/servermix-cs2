@@ -96,10 +96,12 @@ website/htdocs/
 Plugin próprio desenvolvido para:
 
 - Escolha automática/manual de capitães
-- Sistema de picks
-- Sistema de bans
 - X1 entre capitães
-- Seleção automática de mapa
+- Sistema de picks de players
+- X1 entre os players escolhidos com pick e ban do capitão
+- Sistema de bans de mapas
+- Changelevel do mapa escolhido automaticamente
+- Integração via HUD do MenuManagerCore
 - Integração futura com ranking
 
 ---
