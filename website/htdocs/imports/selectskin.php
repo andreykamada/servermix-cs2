@@ -293,14 +293,14 @@ if($current_preview) {
     <link rel="shortcut icon" href="<?= GetPrefix(); ?>src/logo.png" type="image/x-icon">
 
     <link rel="stylesheet" href="<?= GetPrefix(); ?>css/main.css?v=<?= filemtime('css/main.css'); ?>">
-<link rel="stylesheet" href="<?= GetPrefix(); ?>css/skins.css?v=<?= filemtime('css/skins.css'); ?>">
-<link rel="stylesheet" href="<?= GetPrefix(); ?>css/layout.css?v=<?= filemtime('css/layout.css'); ?>">
+    <link rel="stylesheet" href="<?= GetPrefix(); ?>css/layout.css?v=<?= filemtime('css/layout.css'); ?>">
+    <link rel="stylesheet" href="<?= GetPrefix(); ?>css/skins.css?v=<?= filemtime('css/skins.css'); ?>">
 
 <script src="<?= GetPrefix(); ?>js/skins.js?v=<?= filemtime('js/skins.js'); ?>" defer></script>
 
     <title><?= $translations->website_name; ?> - Skins</title>
 </head>
-<body <?= $bodyStyle ?? "" ?>>
+<body <?= $bodyStyle ?? "" ?> class="<?= $selectedweapon_type === 'agents' ? 'page-agents' : ''; ?>">
 
 <div id="loading">
     <span></span>
@@ -351,7 +351,7 @@ if($current_preview) {
         </h3>
 
         <div class="choose">
-            <ul class="skins-grid">
+            <ul class="skins-grid <?= $selectedweapon_type === 'agents' ? 'agents-grid' : ''; ?>">
 
 <?php
 /* =========================

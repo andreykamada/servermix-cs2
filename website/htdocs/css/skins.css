@@ -4,17 +4,19 @@
 
 body {
     background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #fff;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    color: white;
-    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 0 !important;
 }
 
 img {
-    pointer-events: none;
-    user-select: none;
     display: block;
     max-width: 100%;
+    pointer-events: none;
+    user-select: none;
 }
 
 .wrapper {
@@ -22,228 +24,59 @@ img {
     margin: 0 auto;
 }
 
-/* =========================
-   GRID (FIX ORGANIZAÇÃO)
-========================= */
-
-.container .choose ul {
-    display: grid;
-
-    /* GRID LIMPA E ESTÁVEL */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-
-    gap: 18px;
-    padding: 30px;
-
-    align-items: start;
-}
-
-/* =========================
-   CARD PADRONIZADO
-========================= */
-
-.card {
+.container .choose {
     width: 100%;
-    aspect-ratio: 3 / 4; /* 🔥 mantém tudo igual */
+    overflow: visible !important;
+}
 
-    padding: 10px;
-    border-radius: 12px;
+ul,
+li {
+    list-style: none;
+}
 
-    background: linear-gradient(145deg, #0f172a, #020617);
-    border: 1px solid rgba(255,255,255,0.05);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    cursor: pointer;
-    transition: all 0.25s ease;
+button {
+    font-family: inherit;
 }
 
 /* =========================
-   IMG BOX (FIX BUG PRINCIPAL)
+   TEAM THEME SYSTEM
 ========================= */
 
-.card .imgbox {
-    width: 100%;
-    height: 80px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
+body.team-tr {
+    --team-color: #ff9f1a;
+    --team-color-2: #ff5a1f;
+    --team-rgb: 255, 159, 26;
 }
 
-/* 🔥 PADRONIZA TODAS IMAGENS */
-.card img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain; /* evita cortar arma */
+body.team-ct {
+    --team-color: #38bdf8;
+    --team-color-2: #2563eb;
+    --team-rgb: 56, 189, 248;
 }
 
-/* =========================
-   TEXTO
-========================= */
-
-.card span {
-    font-size: 12px;
-    text-align: center;
-    color: #cbd5f5;
-
-    display: -webkit-box;
--webkit-line-clamp: 2;
-line-clamp: 2;
-
--webkit-box-orient: vertical;
-overflow: hidden;
+body.team-tr,
+body.team-ct {
+    background:
+        radial-gradient(circle at 50% 12%, rgba(var(--team-rgb), .14), transparent 34%),
+        radial-gradient(circle at top, #172033 0%, #0b0e13 48%, #05070c 100%) !important;
 }
 
 /* =========================
-   HOVER
-========================= */
-
-.card:hover {
-    transform: translateY(-4px) scale(1.04);
-    border-color: rgba(255,255,255,0.2);
-}
-
-/* =========================
-   SELECTED
-========================= */
-
-.card.selected {
-    border: 1px solid var(--main-color);
-    background: linear-gradient(145deg, #1e293b, #020617);
-}
-
-/* =========================
-   MARKS (T / CT)
-========================= */
-
-.marks {
-    display: flex;
-    gap: 6px;
-    margin-top: 5px;
-}
-
-.marks input[type="radio"] {
-    width: 8px;
-    height: 8px;
-
-    appearance: none;
-    border-radius: 50%;
-
-    outline: 1px solid var(--main-color);
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.marks input[type="radio"]:checked {
-    background: var(--main-color);
-    opacity: 1;
-}
-
-.terrormark {
-    --main-color: #ffa500;
-}
-
-.counterterrormark {
-    --main-color: #0096ff;
-}
-
-/* =========================
-   CATEGORIAS
-========================= */
-
-.categories {
-    position: sticky;
-    top: 0;
-
-    backdrop-filter: blur(10px);
-    background: rgba(15,23,42,0.85);
-
-    padding: 12px;
-    z-index: 10;
-}
-
-.categories ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.categories button {
-    padding: 6px 12px;
-    font-size: 13px;
-
-    border-radius: 8px;
-    background: rgba(255,255,255,0.05);
-    border: none;
-    color: white;
-
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.categories button:hover {
-    background: var(--main-color);
-}
-
-/* =========================
-   SCROLL
-========================= */
-
-.container .choose ul::-webkit-scrollbar {
-    width: 6px;
-}
-
-.container .choose ul::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-    border-radius: 10px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #020617;
-    padding: 20px;
-    margin-top: auto;
-}
-
-footer .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-footer img {
-    height: 40px;
-    border-radius: 8px;
-}
-
-/* =========================
-   TELA TR / CT
+   TEAM SCREEN
 ========================= */
 
 #team-screen {
     position: fixed;
     inset: 0;
-
-    background: radial-gradient(circle at center, #0f172a, #020617);
+    z-index: 9999;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    z-index: 9999;
-    animation: fadeIn 0.6s ease;
+    background: radial-gradient(circle at center, #0f172a, #020617);
+    animation: fadeIn .6s ease;
 }
 
 .team-title {
@@ -259,8 +92,6 @@ footer img {
     color: #94a3b8;
 }
 
-/* BOTÕES */
-
 .team-buttons {
     display: flex;
     gap: 40px;
@@ -268,56 +99,51 @@ footer img {
 
 .team-btn {
     position: relative;
+
     width: 220px;
     height: 260px;
 
     border-radius: 16px;
     overflow: hidden;
-    cursor: pointer;
 
     background: #0f172a;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,.05);
 
-    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: .3s ease;
 }
 
-/* IMAGEM */
 .team-btn img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 
-    opacity: 0.7;
-    transition: 0.4s;
+    opacity: .7;
+    transition: .4s;
 }
 
-/* TEXTO */
 .team-btn span {
     position: absolute;
     bottom: 15px;
+    z-index: 2;
+
     width: 100%;
     text-align: center;
-    font-weight: bold;
-}
 
-/* HOVER */
-.team-btn:hover {
-    transform: translateY(-8px) scale(1.03);
-}
-
-.team-btn.tr:hover {
-    box-shadow: 0 0 30px rgba(255,140,0,0.8);
-}
-
-.team-btn.ct:hover {
-    box-shadow: 0 0 30px rgba(0,150,255,0.8);
+    font-weight: 900;
+    color: #fff;
 }
 
 .team-btn::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+
+    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+}
+
+.team-btn:hover {
+    transform: translateY(-8px) scale(1.03);
 }
 
 .team-btn:hover img {
@@ -325,521 +151,531 @@ footer img {
     opacity: 1;
 }
 
+.team-btn.tr:hover {
+    box-shadow: 0 0 30px rgba(255,140,0,.8);
+}
+
+.team-btn.ct:hover {
+    box-shadow: 0 0 30px rgba(0,150,255,.8);
+}
+
 /* =========================
-   BOTÃO VOLTAR
+   BOTÃO VOLTAR LOADOUT
 ========================= */
 
 #back-to-team {
     position: fixed;
     top: 20px;
     left: 20px;
-
-    background: rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.2);
-
-    padding: 10px 15px;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
-/* =========================
-   ANIMAÇÕES
-========================= */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(1.05);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* =========================
-   RESPONSIVO
-========================= */
-
-@media (max-width: 768px) {
-    .container .choose ul {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-}
-/* =========================
-   AVISO BETA (FIX)
-========================= */
-
-
-/* opcional: emoji espaçamento */
-.beta-warning span {
-    margin: 0 6px;
-}
-
-/* animação leve estilo CS2 */
-@keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -10px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-}
-/* =========================
-   BETA WARNING (CS2 STYLE)
-========================= */
-
-
-/* animação estilo CS2 */
-@keyframes betaFade {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-}
-/* =========================
-   BACK BUTTON (CS2 STYLE)
-========================= */
-
-#back-to-team {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    z-index: 9999;
 
     display: none;
-
     align-items: center;
     gap: 8px;
 
     padding: 10px 16px;
 
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(15,23,42,.85);
     backdrop-filter: blur(10px);
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,.08);
     border-radius: 12px;
 
     color: #e2e8f0;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
 
     cursor: pointer;
-
-    transition: all 0.25s ease;
-    z-index: 9999;
+    transition: .25s ease;
 }
 
-/* seta */
-#back-to-team .arrow {
-    font-size: 16px;
-    transition: transform 0.25s ease;
-}
-
-/* hover geral */
 #back-to-team:hover {
     transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.2);
-    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(var(--team-rgb, 56,189,248), .45);
+    background: rgba(30,41,59,.95);
+    box-shadow: 0 0 18px rgba(var(--team-rgb, 56,189,248), .22);
 }
 
-/* anima seta */
+#back-to-team .arrow {
+    font-size: 16px;
+    transition: .25s ease;
+}
+
 #back-to-team:hover .arrow {
     transform: translateX(-4px);
 }
 
-/* active (click) */
-#back-to-team:active {
-    transform: scale(0.95);
-}
-
-/* glow leve estilo CS2 */
-#back-to-team:hover {
-    box-shadow: 0 0 12px rgba(0, 150, 255, 0.25);
-}
-.skins-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
-    padding: 0;
-}
-
-.skin-item {
-    list-style: none;
-}
-
-.skin-card {
-    background: #1b1f2a;
-    border-radius: 12px;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.skin-card:hover {
-    transform: translateY(-5px);
-}
-
-.skin-card.selected {
-    border: 2px solid #ffcc00;
-}
-
-.skin-image img {
-    filter: drop-shadow(0 0 12px rgba(0,0,0,.45));
-    width: 100%;
-}
-
-.skin-info {
-    text-align: center;
-    margin-top: 8px;
-}
-
-.skin-name {
-    font-size: 14px;
-}
-
-.skin-preview-box {
-    display:flex;
-    gap:10px;
-    background:#111;
-    padding:15px;
-    border-radius:12px;
-}
-
-.skin-preview-box img {
-    height:60px;
-}
 /* =========================
-   FIX GRID ARMAS - SELECTWEAPON
+   TABS DE CATEGORIA
 ========================= */
 
-.container .choose ul {
+.weapon-tabs {
     width: 100%;
+    max-width: 1500px;
+
+    margin: 12px auto 28px !important;
+    padding: 22px 12px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    overflow: visible !important;
+    scrollbar-width: none;
+
+    position: relative;
+    z-index: 5;
+}
+
+.weapon-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.weapon-tab {
+    position: relative;
+    z-index: 2;
+
+    flex: 0 0 auto;
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(13,19,35,.92);
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition: .22s ease;
+}
+
+.weapon-tab:hover {
+    z-index: 20;
+    transform: translateY(-2px);
+    border-color: rgba(var(--team-rgb, 255,159,26), .45);
+    box-shadow: 0 0 18px rgba(var(--team-rgb, 255,159,26), .16);
+}
+
+.weapon-tab.active {
+    z-index: 20;
+
+    background: linear-gradient(90deg, var(--team-color, #ff9f1a), var(--team-color-2, #ff5a1f)) !important;
+    color: #07111f !important;
+    border-color: transparent !important;
+
+    box-shadow:
+        0 0 26px rgba(var(--team-rgb, 255,159,26), .34),
+        0 12px 32px rgba(0,0,0,.35) !important;
+}
+
+/* =========================
+   GRID SELECTWEAPON
+========================= */
+
+.weapon-grid-tabs {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto 60px !important;
+    padding: 20px;
+
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(135px, 135px));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
     justify-content: center;
     align-items: start;
 
-    gap: 22px;
-    padding: 90px 24px 40px;
-
-    list-style: none !important;
+    gap: 18px;
 }
 
-.container .choose ul li,
-.skin-item {
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+.weapon-tab-item {
+    display: none;
 }
 
-/* remove bolinhas brancas */
-.container .choose ul li::marker {
-    content: "";
+.weapon-tab-item.active {
+    display: block;
 }
 
-/* padroniza .card e .skin-card */
-.container .choose .card,
-.container .choose .skin-card {
-    width: 135px !important;
-    height: 170px !important;
+.weapon-grid-tabs li {
+    list-style: none;
+}
 
-    padding: 10px !important;
+.weapon-grid-tabs .card,
+.weapon-grid-tabs .skin-card {
+    width: 150px;
+    height: 190px;
 
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+    padding: 10px;
 
-    background: rgba(17, 24, 39, 0.82) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-    border: 1px solid rgba(255,255,255,0.06) !important;
-    border-radius: 12px !important;
+    border-radius: 18px;
 
-    color: #fff !important;
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,.045), rgba(15,23,42,.92) 58%),
+        linear-gradient(180deg, rgba(15,23,42,.98), rgba(10,15,30,.98));
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    color: #fff;
 
     cursor: pointer;
     overflow: hidden;
 
-    transition: 0.22s ease !important;
+    transition: .22s ease;
 }
 
-/* hover */
-.container .choose .card:hover,
-.container .choose .skin-card:hover {
-    transform: translateY(-5px) scale(1.03) !important;
-    border-color: rgba(244, 197, 66, 0.6) !important;
-    box-shadow: 0 0 18px rgba(244, 197, 66, 0.18);
+.weapon-grid-tabs .card:hover,
+.weapon-grid-tabs .skin-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(var(--team-rgb, 244,197,66), .55);
+
+    box-shadow:
+        0 0 24px rgba(var(--team-rgb, 244,197,66), .16),
+        0 14px 34px rgba(0,0,0,.4);
 }
 
-/* selected */
-.container .choose .card.selected,
-.container .choose .skin-card.selected {
-    border: 2px solid #f4c542 !important;
-    box-shadow: 0 0 20px rgba(244, 197, 66, 0.25);
+.weapon-grid-tabs .imgbox,
+.weapon-grid-tabs .skin-image {
+    width: 100%;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    overflow: hidden;
 }
 
-/* imagem */
-.container .choose .imgbox,
-.container .choose .skin-image {
-    width: 100% !important;
-    height: 95px !important;
+.weapon-grid-tabs img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    filter: drop-shadow(0 10px 14px rgba(0,0,0,.45));
+    transition: .25s ease;
+}
+
+.weapon-grid-tabs .card:hover img {
+    transform: scale(1.06) translateY(-2px);
+}
+
+.weapon-grid-tabs span,
+.weapon-grid-tabs .skin-name {
+    min-height: 45px;
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1.1;
+
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,.7);
+
+    overflow: hidden;
+}
+
+/* =========================
+   AGENTES NO SELECTWEAPON
+========================= */
+
+.weapon-grid-tabs .weapon-tab-item.tab-agents {
+    width: 220px !important;
+    height: 300px !important;
+}
+
+.weapon-grid-tabs .weapon-tab-item.tab-agents.active {
+    display: block !important;
+}
+
+.weapon-grid-tabs .weapon-tab-item.tab-agents .card {
+    width: 220px !important;
+    height: 300px !important;
+
+    padding: 16px 16px 18px !important;
+
+    border-radius: 22px !important;
+
+    background:
+        radial-gradient(circle at 50% 20%, rgba(var(--team-rgb, 56,189,248), .14), transparent 48%),
+        linear-gradient(180deg, rgba(15,23,42,.98), rgba(7,12,24,.98)) !important;
+
+    border: 1px solid rgba(var(--team-rgb, 56,189,248), .16) !important;
+
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.32),
+        inset 0 0 35px rgba(255,255,255,.015) !important;
 
     overflow: hidden !important;
 }
 
-.container .choose .imgbox img,
-.container .choose .skin-image img,
-.container .choose .card img,
-.container .choose .skin-card img {
-    position: static !important;
+.weapon-grid-tabs .weapon-tab-item.tab-agents .card:hover {
+    transform: translateY(-6px) !important;
 
-    max-width: 100% !important;
-    max-height: 90px !important;
+    border-color: rgba(var(--team-rgb, 56,189,248), .55) !important;
 
+    box-shadow:
+        0 22px 44px rgba(0,0,0,.42),
+        0 0 30px rgba(var(--team-rgb, 56,189,248), .18) !important;
+}
+
+.weapon-grid-tabs .weapon-tab-item.tab-agents .imgbox {
+    height: 205px !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+}
+
+.weapon-grid-tabs .weapon-tab-item.tab-agents .imgbox img {
     width: auto !important;
     height: auto !important;
 
+    max-width: 120% !important;
+    max-height: 205px !important;
+
     object-fit: contain !important;
+    object-position: center bottom !important;
+
+    transform: scale(1.08);
+    filter: drop-shadow(0 18px 24px rgba(0,0,0,.5)) !important;
 }
 
-/* texto */
-.container .choose .card span,
-.container .choose .skin-name,
-.container .choose .skin-info span {
+.weapon-grid-tabs .weapon-tab-item.tab-agents .card:hover .imgbox img {
+    transform: scale(1.13) translateY(-2px) !important;
+}
+
+.weapon-grid-tabs .weapon-tab-item.tab-agents .card span {
+    width: 100% !important;
+    min-height: 56px !important;
+    padding: 0 8px !important;
+    margin-top: 10px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: unset !important;
+
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+    font-weight: 900 !important;
+
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
+}
+
+/* grid maior quando a aba agentes está aberta */
+.weapon-grid-tabs:has(.tab-agents.active) {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 220px)) !important;
+    gap: 26px !important;
+}
+
+/* =========================
+   LOADOUT ATUAL
+========================= */
+
+.loadout-panel {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+.weapon-tab-item.tab-loadout {
+    display: none !important;
+}
+
+.weapon-tab-item.tab-loadout.active {
+    display: block !important;
+}
+
+.loadout-layout {
     width: 100%;
+    max-width: 1250px !important;
 
-    font-size: 13px !important;
-    font-weight: 700;
+    margin: 10px auto 40px !important;
+    padding: 22px !important;
 
-    color: #f2f5fa !important;
+    display: grid;
+    grid-template-columns: 260px 1fr !important;
+    align-items: stretch;
 
-    text-align: center;
+    gap: 22px !important;
 
-    line-height: 1.25;
+    background:
+        radial-gradient(circle at top left, rgba(var(--team-rgb, 255,159,26), .16), transparent 34%),
+        linear-gradient(135deg, rgba(20,31,50,.96), rgba(8,12,22,.98)) !important;
 
-    display: -webkit-box;
--webkit-line-clamp: 2;
-line-clamp: 2;
+    border: 1px solid rgba(var(--team-rgb, 255,159,26), .18) !important;
+    border-radius: 24px;
 
--webkit-box-orient: vertical;
-overflow: hidden;
+    box-shadow:
+        0 0 44px rgba(var(--team-rgb, 255,159,26), .08),
+        0 24px 70px rgba(0,0,0,.42) !important;
 }
 
-/* marks T/CT */
-.container .choose .marks {
-    height: 12px;
-    margin-top: 4px;
+.cs2-character-panel {
+    min-height: 520px !important;
+
+    padding: 20px !important;
 
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, rgba(var(--team-rgb, 255,159,26), .16), rgba(15,23,42,.92) 56%) !important;
+
+    border-radius: 20px;
+}
+
+.cs2-team-badge {
+    max-width: 210px !important;
+
+    padding: 9px 14px !important;
+    margin-bottom: 20px;
+
+    background: linear-gradient(90deg, rgba(var(--team-rgb, 255,159,26), .95), rgba(var(--team-rgb, 255,159,26), .62)) !important;
+    color: #07111f !important;
+
+    font-size: 13px !important;
+    font-weight: 900;
+    line-height: 1.15 !important;
+
+    border-radius: 4px;
+    transform: skew(-6deg);
+
+    box-shadow: 0 0 20px rgba(var(--team-rgb, 255,159,26), .28) !important;
+}
+
+.cs2-character {
+    width: 100%;
+    max-height: 260px !important;
+
+    object-fit: contain !important;
+    filter: drop-shadow(0 30px 35px rgba(0,0,0,.55));
+}
+
+.cs2-loadout-content h2 {
+    margin-bottom: 14px !important;
+
+    color: #fff;
+    font-size: 24px !important;
+    font-weight: 900;
+}
+
+.loadout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(132px, 132px)) !important;
+    justify-content: start;
+
+    gap: 16px !important;
+}
+
+.loadout-card {
+    width: 132px !important;
+    height: 168px !important;
+
+    padding: 12px !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        radial-gradient(circle at top, rgba(var(--team-rgb, 255,159,26), .08), rgba(12,17,29,.96) 58%) !important;
+
+    border: 1px solid rgba(var(--team-rgb, 255,159,26), .11) !important;
+    border-radius: 16px !important;
+
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.loadout-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(var(--team-rgb, 255,159,26), .6) !important;
+
+    box-shadow:
+        0 0 24px rgba(var(--team-rgb, 255,159,26), .18),
+        0 14px 32px rgba(0,0,0,.42) !important;
+}
+
+.loadout-card-image {
+    width: 100%;
+    height: 96px !important;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 8px;
 }
 
-/* responsivo */
-@media (max-width: 900px) {
-    .container .choose ul {
-        grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
-        gap: 16px;
-        padding: 100px 12px 30px;
-    }
-
-    .container .choose .card,
-    .container .choose .skin-card {
-        width: 110px !important;
-        height: 150px !important;
-    }
-
-    .container .choose .imgbox,
-    .container .choose .skin-image {
-        height: 80px !important;
-    }
-
-    .container .choose .imgbox img,
-    .container .choose .skin-image img,
-    .container .choose .card img,
-    .container .choose .skin-card img {
-        max-height: 76px !important;
-    }
-}
-/* =========================
-   RARIDADE CS2
-========================= */
-
-.skin-card {
-
-    position: relative;
-    overflow: hidden;
-
-    background:
-    linear-gradient(
-        180deg,
-        rgba(255,255,255,0.03),
-        rgba(0,0,0,0.45)
-    ),
-    linear-gradient(
-        135deg,
-        var(--rarity-color, #1a1a1a),
-        #111 70%
-    );
-
-    border:
-    1px solid rgba(255,255,255,0.06);
-
-    transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    border-color .18s ease;
+.loadout-card-image img {
+    max-height: 90px !important;
+    object-fit: contain;
 }
 
-.skin-card:hover {
-
-    transform: translateY(-5px);
-
-    border-color: var(--rarity-color);
-
-    box-shadow:
-    0 0 18px color-mix(in srgb, var(--rarity-color) 40%, transparent),
-    0 12px 28px rgba(0,0,0,0.45);
-}
-
-.skin-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
+.loadout-card-info {
     width: 100%;
-    height: 4px;
-
-    background: var(--rarity-color);
+    text-align: center;
 }
 
-.skin-card.selected {
+.loadout-card-info strong {
+    display: block;
 
-    border-color: var(--rarity-color);
+    color: #fff;
 
-    box-shadow:
-    0 0 24px color-mix(in srgb, var(--rarity-color) 55%, transparent);
+    font-size: 11px !important;
+    font-weight: 900;
+    line-height: 1.15;
 }
+
+.loadout-card-info span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #9ca7b8;
+
+    font-size: 10px !important;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
 /* =========================
-   CARD RARIDADE CS2
-========================= */
-
-.skin-card {
-
-    position: relative;
-    overflow: hidden;
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,0.03),
-            rgba(0,0,0,0.35)
-        ),
-        linear-gradient(
-            145deg,
-            color-mix(in srgb, var(--rarity-color) 22%, #0b1020),
-            #09111f 65%
-        );
-
-    border: 1px solid rgba(255,255,255,0.05);
-
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        border-color .18s ease,
-        background .18s ease;
-}
-
-/* brilho lateral */
-
-.skin-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--rarity-color) 35%, transparent),
-            transparent 45%
-        );
-
-    opacity: .9;
-
-    pointer-events: none;
-}
-
-/* barra raridade */
-
-.skin-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 5px;
-
-    background: var(--rarity-color);
-}
-
-/* hover */
-
-.skin-card:hover {
-
-    transform: translateY(-6px);
-
-    border-color: var(--rarity-color);
-
-    box-shadow:
-        0 0 18px color-mix(in srgb, var(--rarity-color) 35%, transparent),
-        0 14px 32px rgba(0,0,0,.45);
-}
-
-/* selecionada */
-
-.skin-card.selected {
-
-    border-color: #f4c542;
-
-    box-shadow:
-        0 0 0 1px #f4c542,
-        0 0 24px rgba(244,197,66,.35);
-}
-/* =========================
-   SELECT SKIN - GRID REFINADO
+   SELECTSKIN GRID
 ========================= */
 
 .skins-grid {
     width: 100%;
     max-width: 1500px;
+
     margin: 0 auto;
 
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(135px, 135px));
+    grid-template-columns: repeat(auto-fill, minmax(135px, 135px)) !important;
     justify-content: center;
     align-items: stretch;
 
@@ -852,11 +688,11 @@ overflow: hidden;
 .skins-grid .skin-item {
     width: 135px;
     height: 175px;
-    list-style: none;
 }
 
-/* CARD */
 .skins-grid .skin-card {
+    position: relative;
+
     width: 135px;
     height: 175px;
     min-height: unset;
@@ -871,11 +707,7 @@ overflow: hidden;
     border-radius: 14px;
 
     background:
-        radial-gradient(
-            circle at top,
-            color-mix(in srgb, var(--rarity-color, #2a2a2a) 25%, transparent),
-            rgba(15, 23, 42, .92) 52%
-        );
+        radial-gradient(circle at top, color-mix(in srgb, var(--rarity-color, #2a2a2a) 25%, transparent), rgba(15,23,42,.92) 52%);
 
     border: 1px solid rgba(255,255,255,.07);
 
@@ -884,11 +716,13 @@ overflow: hidden;
         0 10px 24px rgba(0,0,0,.28);
 
     overflow: hidden;
+    cursor: pointer;
+    transition: .22s ease;
 }
 
-/* HOVER */
 .skins-grid .skin-card:hover {
     transform: translateY(-5px);
+
     border-color: var(--rarity-color, #f4c542);
 
     box-shadow:
@@ -897,17 +731,15 @@ overflow: hidden;
         0 0 22px color-mix(in srgb, var(--rarity-color, #f4c542) 35%, transparent);
 }
 
-/* SELECTED */
 .skins-grid .skin-card.selected {
-    border: 2px solid var(--cs-yellow, #f4c542);
+    border: 2px solid var(--team-color, #f4c542);
 
     box-shadow:
         inset 0 -4px 0 var(--rarity-color, #f4c542),
-        0 0 0 1px rgba(244,197,66,.35),
-        0 0 28px rgba(244,197,66,.35);
+        0 0 0 1px rgba(var(--team-rgb, 244,197,66), .35),
+        0 0 28px rgba(var(--team-rgb, 244,197,66), .35);
 }
 
-/* IMAGEM */
 .skins-grid .skin-image {
     width: 100%;
     height: 92px;
@@ -922,9 +754,7 @@ overflow: hidden;
     max-height: 82px;
 
     object-fit: contain;
-
-    filter:
-        drop-shadow(0 10px 14px rgba(0,0,0,.45));
+    filter: drop-shadow(0 10px 14px rgba(0,0,0,.45));
 
     transition: .25s ease;
 }
@@ -933,7 +763,6 @@ overflow: hidden;
     transform: scale(1.08) translateY(-2px);
 }
 
-/* TEXTO */
 .skins-grid .skin-info {
     width: 100%;
     min-height: 38px;
@@ -947,35 +776,238 @@ overflow: hidden;
     color: #fff;
 
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
 
     text-align: center;
 
     display: -webkit-box;
--webkit-line-clamp: 2;
-line-clamp: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 
--webkit-box-orient: vertical;
-overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
 
     text-shadow: 0 2px 4px rgba(0,0,0,.7);
 }
 
-/* AJUSTE DO CONTAINER DA PÁGINA */
-.container .choose {
+/* =========================
+   AGENTES NO SELECTSKIN
+========================= */
+
+body.page-agents .skins-grid,
+.skins-grid.agents-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 220px)) !important;
+    gap: 30px !important;
+    justify-content: center !important;
+}
+
+body.page-agents .skins-grid .skin-item,
+.skins-grid.agents-grid .skin-item {
+    width: 220px !important;
+    height: 400px !important;
+}
+
+body.page-agents .skins-grid .skin-card,
+.skins-grid.agents-grid .skin-card {
+    width: 220px !important;
+    height: 400px !important;
+
+    padding: 18px !important;
+    border-radius: 24px !important;
+
+    background:
+        radial-gradient(circle at 50% 18%, rgba(var(--team-rgb, 56,189,248), .16), transparent 48%),
+        linear-gradient(180deg, rgba(10,16,28,.98), rgba(5,10,18,.99)) !important;
+
+    border: 1px solid rgba(var(--team-rgb, 56,189,248), .18) !important;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        inset 0 0 35px rgba(255,255,255,.02) !important;
+}
+
+body.page-agents .skins-grid .skin-image,
+.skins-grid.agents-grid .skin-image {
+    height: 285px !important;
+
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+}
+
+body.page-agents .skins-grid .skin-image img,
+.skins-grid.agents-grid .skin-image img {
+    width: auto !important;
+    height: auto !important;
+
+    max-width: 115% !important;
+    max-height: 285px !important;
+
+    object-fit: contain !important;
+    object-position: center bottom !important;
+
+    filter: drop-shadow(0 16px 24px rgba(0,0,0,.45)) !important;
+}
+
+body.page-agents .skins-grid .skin-info,
+.skins-grid.agents-grid .skin-info {
+    min-height: 80px !important;
+    margin-top: 14px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+body.page-agents .skins-grid .skin-name,
+.skins-grid.agents-grid .skin-name {
+    display: block !important;
+
+    width: 100% !important;
+
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+
+    font-size: 15px !important;
+    line-height: 1.18 !important;
+    font-weight: 900 !important;
+
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
+}
+
+/* =========================
+   PREVIEW SELECTSKIN
+========================= */
+
+.skin-preview-box {
+    display: flex;
+    gap: 10px;
+
+    background: #111;
+    padding: 15px;
+
+    border-radius: 12px;
+}
+
+.skin-preview-box img {
+    height: 60px;
+}
+
+.skin-header-info h2 {
+    color: #fff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 1 !important;
+
     width: 100%;
+
+    margin-top: 80px;
+    padding: 20px;
+
+    background: rgba(13,18,30,.96);
+    border-top: 1px solid rgba(255,255,255,.06);
 }
 
-.container .choose ul.skins-grid {
-    grid-template-columns: repeat(auto-fill, minmax(135px, 135px)) !important;
+footer .wrapper {
+    max-width: 1800px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* RESPONSIVO */
+footer img {
+    height: 40px;
+    border-radius: 8px;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1100px) {
+    .loadout-layout {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cs2-character-panel {
+        min-height: auto !important;
+    }
+}
+
 @media (max-width: 900px) {
-    .skins-grid {
+    .weapon-grid-tabs {
         grid-template-columns: repeat(auto-fill, minmax(120px, 120px));
+        gap: 14px;
+        padding: 18px 10px 70px;
+    }
+
+    .weapon-grid-tabs .card,
+    .weapon-grid-tabs .skin-card {
+        width: 120px;
+        height: 165px;
+    }
+
+    .weapon-grid-tabs .imgbox,
+    .weapon-grid-tabs .skin-image {
+        height: 105px;
+    }
+
+    .weapon-grid-tabs span,
+    .weapon-grid-tabs .skin-name {
+        font-size: 11px;
+    }
+
+    .weapon-grid-tabs:has(.tab-agents.active) {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 170px)) !important;
+    }
+
+    .weapon-grid-tabs .weapon-tab-item.tab-agents,
+    .weapon-grid-tabs .weapon-tab-item.tab-agents .card {
+        width: 170px !important;
+        height: 260px !important;
+    }
+
+    .weapon-grid-tabs .weapon-tab-item.tab-agents .imgbox {
+        height: 175px !important;
+    }
+
+    .weapon-grid-tabs .weapon-tab-item.tab-agents .imgbox img {
+        max-height: 175px !important;
+    }
+
+    .skins-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 120px)) !important;
         gap: 16px;
         padding: 25px 10px 60px;
     }
@@ -986,1112 +1018,26 @@ overflow: hidden;
         height: 165px;
     }
 
-    .skins-grid .skin-image {
-        height: 88px;
+    body.page-agents .skins-grid,
+    .skins-grid.agents-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 170px)) !important;
     }
 
-    .skins-grid .skin-image img {
-        max-width: 104px;
-        max-height: 76px;
+    body.page-agents .skins-grid .skin-item,
+    body.page-agents .skins-grid .skin-card,
+    .skins-grid.agents-grid .skin-item,
+    .skins-grid.agents-grid .skin-card {
+        width: 170px !important;
+        height: 310px !important;
     }
 
-    .skins-grid .skin-name {
-        font-size: 11px;
-    }
-}
-/* =========================
-   SELECT WEAPON - GRID REFINADO
-========================= */
-
-.container .choose > ul:not(.skins-grid) {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 120px));
-    justify-content: center;
-    align-items: stretch;
-
-    gap: 20px;
-    padding: 36px 20px 80px;
-
-    list-style: none;
-}
-
-/* LI */
-.container .choose > ul:not(.skins-grid) > li,
-.container .choose > ul:not(.skins-grid) .skin-item {
-    width: 120px;
-    height: 160px;
-    list-style: none;
-}
-
-/* CARD PADRÃO */
-.container .choose > ul:not(.skins-grid) .card,
-.container .choose > ul:not(.skins-grid) .skin-card {
-    width: 120px !important;
-    height: 160px !important;
-    min-height: unset !important;
-
-    padding: 10px 8px !important;
-
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    border-radius: 14px;
-
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(255,255,255,.045),
-            rgba(15,23,42,.92) 58%
-        );
-
-    border: 1px solid rgba(255,255,255,.07);
-
-    box-shadow:
-        0 8px 22px rgba(0,0,0,.28);
-
-    overflow: hidden;
-
-    transition: .25s ease;
-}
-
-/* HOVER */
-.container .choose > ul:not(.skins-grid) .card:hover,
-.container .choose > ul:not(.skins-grid) .skin-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(244,197,66,.65);
-
-    box-shadow:
-        0 14px 32px rgba(0,0,0,.38),
-        0 0 20px rgba(244,197,66,.18);
-}
-
-/* SELECTED */
-.container .choose > ul:not(.skins-grid) .card.selected,
-.container .choose > ul:not(.skins-grid) .skin-card.selected {
-    border: 2px solid var(--cs-yellow, #f4c542);
-
-    box-shadow:
-        0 0 0 1px rgba(244,197,66,.25),
-        0 0 26px rgba(244,197,66,.25);
-}
-
-/* IMAGEM CARD NORMAL */
-.container .choose > ul:not(.skins-grid) .imgbox,
-.container .choose > ul:not(.skins-grid) .skin-image {
-    width: 100%;
-    height: 95px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* IMG */
-.container .choose > ul:not(.skins-grid) .card img,
-.container .choose > ul:not(.skins-grid) .skin-card img {
-    max-width: 104px !important;
-    max-height: 78px !important;
-
-    object-fit: contain;
-
-    filter: drop-shadow(0 10px 14px rgba(0,0,0,.45));
-
-    transition: .25s ease;
-}
-
-/* IMAGENS DUPLAS */
-.container .choose > ul:not(.skins-grid) .imgbox:has(img:nth-child(2)),
-.container .choose > ul:not(.skins-grid) .skin-image:has(img:nth-child(2)) {
-    gap: 2px;
-}
-
-.container .choose > ul:not(.skins-grid) .imgbox:has(img:nth-child(2)) img,
-.container .choose > ul:not(.skins-grid) .skin-image:has(img:nth-child(2)) img {
-    max-width: 76px !important;
-    max-height: 58px !important;
-}
-
-.container .choose > ul:not(.skins-grid) .card:hover img,
-.container .choose > ul:not(.skins-grid) .skin-card:hover img {
-    transform: scale(1.06) translateY(-2px);
-}
-
-/* TEXTO */
-.container .choose > ul:not(.skins-grid) .card span,
-.container .choose > ul:not(.skins-grid) .skin-name {
-    width: 100%;
-
-    color: #fff;
-
-    font-size: 11.5px;
-    font-weight: 800;
-    line-height: 1.1;
-
-    text-align: center;
-
-    display: -webkit-box;
--webkit-line-clamp: 2;
-line-clamp: 2;
-
--webkit-box-orient: vertical;
-overflow: hidden;
-    text-overflow: ellipsis;
-
-    text-shadow: 0 2px 4px rgba(0,0,0,.7);
-}
-
-/* INFO */
-.container .choose > ul:not(.skins-grid) .skin-info {
-    width: 100%;
-    min-height: 34px;
-
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-/* MARKS T/CT */
-.container .choose > ul:not(.skins-grid) .marks {
-    min-height: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 6px;
-    margin-top: 4px;
-}
-
-.container .choose > ul:not(.skins-grid) .marks input[type="radio"] {
-    width: 12px !important;
-    height: 12px !important;
-}
-
-/* RESPONSIVO */
-@media (max-width: 900px) {
-    .container .choose > ul:not(.skins-grid) {
-        grid-template-columns: repeat(auto-fill, minmax(105px, 105px));
-        gap: 14px;
-        padding: 28px 10px 70px;
+    body.page-agents .skins-grid .skin-image,
+    .skins-grid.agents-grid .skin-image {
+        height: 215px !important;
     }
 
-    .container .choose > ul:not(.skins-grid) > li,
-    .container .choose > ul:not(.skins-grid) .skin-item,
-    .container .choose > ul:not(.skins-grid) .card,
-    .container .choose > ul:not(.skins-grid) .skin-card {
-        width: 105px !important;
-        height: 150px !important;
+    body.page-agents .skins-grid .skin-image img,
+    .skins-grid.agents-grid .skin-image img {
+        max-height: 215px !important;
     }
-
-    .container .choose > ul:not(.skins-grid) .imgbox,
-    .container .choose > ul:not(.skins-grid) .skin-image {
-        height: 88px;
-    }
-
-    .container .choose > ul:not(.skins-grid) .card img,
-    .container .choose > ul:not(.skins-grid) .skin-card img {
-        max-width: 94px !important;
-        max-height: 70px !important;
-    }
-
-    .container .choose > ul:not(.skins-grid) .card span,
-    .container .choose > ul:not(.skins-grid) .skin-name {
-        font-size: 10.5px;
-    }
-}
-/* =================================
-   INVENTORY SECTIONS
-================================= */
-
-.inventory-category {
-    width: 100%;
-
-    margin: 35px 0 10px;
-    padding-left: 6px;
-}
-
-.inventory-category h2 {
-    color: #f2f5fa;
-
-    font-size: 20px;
-    font-weight: 800;
-
-    letter-spacing: .5px;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* =================================
-   GRID MELHORADA
-================================= */
-
-.container .choose > ul {
-    display: grid !important;
-
-    grid-template-columns:
-        repeat(auto-fill, minmax(140px, 1fr));
-
-    gap: 18px;
-
-    align-items: start;
-}
-
-/* category ocupa linha inteira */
-
-.inventory-category {
-    grid-column: 1 / -1;
-}
-.inventory-category {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin: 34px 0 8px;
-}
-
-.inventory-category h2 {
-    font-size: 20px;
-    font-weight: 900;
-    color: #fff;
-}
-
-.container .choose > ul:not(.skins-grid) {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 120px));
-    justify-content: center;
-    align-items: start;
-    gap: 18px;
-}
-.inventory-category {
-    margin: 30px 0 14px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.inventory-category h2 {
-    font-size: 24px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.category-content {
-    display: none !important;
-}
-
-.category-content.active {
-    display: list-item !important;
-}
-
-.inventory-category {
-    grid-column: 1 / -1;
-    cursor: pointer;
-    margin: 24px 0 8px;
-}
-
-.inventory-category h2::after {
-    content: " ▼";
-    font-size: 13px;
-    opacity: .7;
-}
-
-.inventory-category.closed h2::after {
-    content: " ▶";
-}
-
-.weapon-tabs {
-    width: 100%;
-    max-width: 1400px;
-
-    margin: 0 auto 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    padding: 10px 8px;
-
-    scrollbar-width: none;
-}
-
-.weapon-tabs::-webkit-scrollbar {
-    display: none;
-}
-
-.weapon-tab {
-    flex: 0 0 auto;
-
-    padding: 12px 20px;
-
-    background: rgba(15,23,42,.92);
-
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 14px;
-
-    color: #fff;
-
-    font-size: 15px;
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: .2s ease;
-
-    white-space: nowrap;
-}
-
-.weapon-tab:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255,255,255,.2);
-}
-
-.weapon-tab.active {
-    background: linear-gradient(90deg,#f7b733,#fc4a1a);
-    color: #111;
-    border-color: transparent;
-
-    box-shadow:
-        0 0 20px rgba(255,140,0,.25),
-        0 8px 24px rgba(0,0,0,.35);
-}
-
-.weapon-grid-tabs {
-    width: 100%;
-    max-width: 1500px;
-
-    margin: 0 auto;
-
-    display: grid !important;
-
-    grid-template-columns: repeat(auto-fill, minmax(140px, 140px));
-
-    justify-content: center;
-
-    gap: 18px;
-
-    list-style: none;
-}
-
-.weapon-tab-item {
-    display: none;
-}
-
-.weapon-tab-item.active {
-    display: block;
-}
-/* =========================================
-   TABS HORIZONTAIS
-========================================= */
-
-.weapon-tabs {
-    width: 100%;
-    max-width: 1500px;
-
-    margin: 60px auto 25px auto;
-
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    overflow-x: auto;
-    overflow-y: visible;
-
-    padding: 10px 10px 0;
-
-    scrollbar-width: none;
-}
-
-.weapon-tabs::-webkit-scrollbar {
-    display: none;
-}
-
-.weapon-tab {
-    flex: 0 0 auto;
-
-    padding: 12px 18px;
-
-    border-radius: 14px;
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    background: rgba(13,19,35,.92);
-
-    color: #fff;
-
-    font-size: 15px;
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: .2s ease;
-
-    white-space: nowrap;
-}
-
-.weapon-tab:hover {
-    transform: translateY(-2px);
-
-    border-color: rgba(255,255,255,.2);
-}
-
-.weapon-tab.active {
-    background: linear-gradient(90deg,#ffb300,#ff6a00);
-
-    color: #111;
-
-    border-color: transparent;
-
-    box-shadow:
-        0 0 20px rgba(255,140,0,.22),
-        0 8px 24px rgba(0,0,0,.35);
-}
-
-/* =========================================
-   CONTAINER DAS ARMAS
-========================================= */
-
-.weapon-category {
-    display: none;
-}
-
-.weapon-category.active {
-    display: block;
-}
-
-/* =========================================
-   GRID HORIZONTAL
-========================================= */
-
-.weapon-grid-tabs {
-    width: 100%;
-    max-width: 1500px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
-
-    justify-content: center;
-
-    gap: 18px;
-
-    padding: 20px;
-
-    list-style: none;
-}
-
-/* =========================================
-   CARD
-========================================= */
-
-.weapon-grid-tabs li {
-    list-style: none;
-}
-
-.weapon-grid-tabs .card,
-.weapon-grid-tabs .skin-card {
-    width: 150px;
-    height: 190px;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(15,23,42,.98),
-            rgba(10,15,30,.98)
-        );
-
-    border: 1px solid rgba(255,255,255,.06);
-
-    transition: .18s ease;
-
-    overflow: hidden;
-}
-
-.weapon-grid-tabs .card:hover,
-.weapon-grid-tabs .skin-card:hover {
-    transform: translateY(-4px);
-
-    border-color: rgba(255,255,255,.18);
-
-    box-shadow:
-        0 0 30px rgba(0,0,0,.35),
-        0 10px 30px rgba(0,0,0,.28);
-}
-
-/* =========================================
-   IMAGENS
-========================================= */
-
-.weapon-grid-tabs .imgbox,
-.weapon-grid-tabs .skin-image {
-    width: 100%;
-    height: 130px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px;
-}
-
-.weapon-grid-tabs img {
-    max-width: 100%;
-    max-height: 100%;
-
-    object-fit: contain;
-}
-
-/* =========================================
-   TEXTO
-========================================= */
-
-.weapon-grid-tabs span,
-.weapon-grid-tabs .skin-name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    font-size: 14px;
-    font-weight: 800;
-
-    color: #fff;
-
-    padding: 0 10px;
-
-    min-height: 45px;
-}
-/* =========================
-   LOADOUT ATUAL CORRIGIDO
-========================= */
-
-.weapon-tab-item.tab-loadout.active {
-    display: block !important;
-    grid-column: 1 / -1 !important;
-    width: 100% !important;
-}
-
-.loadout-panel {
-    width: 100% !important;
-    grid-column: 1 / -1 !important;
-}
-
-.loadout-layout {
-    width: 100%;
-    max-width: 1450px;
-    margin: 20px auto 60px;
-    padding: 28px;
-
-    display: grid;
-    grid-template-columns: 330px 1fr;
-    gap: 28px;
-
-    background: linear-gradient(135deg, rgba(20,31,50,.96), rgba(8,12,22,.98));
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.35);
-}
-
-.loadout-side {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.loadout-side h2 {
-    font-size: 32px;
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.05;
-}
-
-.loadout-side p {
-    color: #9ca7b8;
-    font-size: 15px;
-    line-height: 1.4;
-}
-
-.loadout-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 160px));
-    justify-content: start;
-    gap: 18px;
-}
-
-.loadout-card {
-    width: 160px;
-    height: 205px;
-    padding: 12px;
-
-    background: linear-gradient(180deg, #121a2a, #0c111d);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 18px;
-
-    cursor: pointer;
-    transition: .2s ease;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.loadout-card:hover {
-    transform: translateY(-4px);
-    border-color: #f4c542;
-    box-shadow: 0 0 28px rgba(244,197,66,.18);
-}
-
-.loadout-card-image {
-    width: 100%;
-    height: 115px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loadout-card-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.loadout-card-info {
-    width: 100%;
-    text-align: center;
-}
-
-.loadout-card-info strong {
-    display: block;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 900;
-    line-height: 1.15;
-}
-
-.loadout-card-info span {
-    display: block;
-    margin-top: 4px;
-    color: #9ca7b8;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.15;
-}
-
-@media(max-width: 900px) {
-    .loadout-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .loadout-grid {
-        justify-content: center;
-    }
-}
-body {
-    padding-bottom: 0 !important;
-}
-
-footer {
-    position: relative !important;
-    bottom: auto !important;
-    left: auto !important;
-
-    width: 100%;
-    margin-top: 80px;
-
-    background: rgba(13,18,30,.96);
-    border-top: 1px solid rgba(255,255,255,.06);
-}
-
-footer .wrapper {
-    max-width: 1800px;
-    margin: 0 auto;
-}
-body {
-    padding-bottom: 0 !important;
-}
-
-footer {
-    position: relative !important;
-    bottom: auto !important;
-    left: auto !important;
-    z-index: 1 !important;
-
-    width: 100%;
-    margin-top: 80px;
-}
-
-.weapon-grid-tabs {
-    margin-bottom: 60px !important;
-}
-
-.cs2-loadout {
-    grid-template-columns: 320px 1fr !important;
-    align-items: stretch;
-}
-
-.cs2-character-panel {
-    min-height: 620px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: radial-gradient(circle at center, rgba(96,165,250,.18), transparent 55%),
-                linear-gradient(180deg, rgba(148,163,184,.08), rgba(15,23,42,.25));
-    border-radius: 20px;
-    padding: 22px;
-}
-
-.cs2-team-badge {
-    padding: 10px 22px;
-    margin-bottom: 20px;
-    background: #bfdbfe;
-    color: #020617;
-    font-weight: 900;
-    font-size: 18px;
-    border-radius: 4px;
-    transform: skew(-6deg);
-}
-
-.cs2-character {
-    width: 100%;
-    max-height: 520px;
-    object-fit: contain;
-    filter: drop-shadow(0 30px 35px rgba(0,0,0,.55));
-}
-
-.cs2-loadout-content {
-    min-width: 0;
-}
-
-@media(max-width: 1000px) {
-    .cs2-loadout {
-        grid-template-columns: 1fr !important;
-    }
-
-    .cs2-character-panel {
-        min-height: 360px;
-    }
-
-    .cs2-character {
-        max-height: 300px;
-    }
-}
-/* =========================
-   LOADOUT ATUAL COMPACTO
-========================= */
-
-.selectweapon-page .cs2-loadout {
-    max-width: 1250px !important;
-    margin: 10px auto 40px !important;
-    padding: 22px !important;
-
-    grid-template-columns: 260px 1fr !important;
-    gap: 22px !important;
-}
-
-.selectweapon-page .cs2-character-panel {
-    min-height: 520px !important;
-    padding: 20px !important;
-}
-
-.selectweapon-page .cs2-team-badge {
-    max-width: 210px !important;
-    padding: 9px 14px !important;
-
-    font-size: 13px !important;
-    line-height: 1.15 !important;
-}
-
-.selectweapon-page .cs2-character {
-    max-height: 260px !important;
-    object-fit: contain !important;
-}
-
-.selectweapon-page .cs2-loadout-content h2 {
-    font-size: 24px !important;
-    margin-bottom: 14px !important;
-}
-
-.selectweapon-page .loadout-grid {
-    grid-template-columns: repeat(auto-fill, minmax(132px, 132px)) !important;
-    gap: 16px !important;
-}
-
-.selectweapon-page .loadout-card {
-    width: 132px !important;
-    height: 168px !important;
-
-    padding: 12px !important;
-    border-radius: 16px !important;
-}
-
-.selectweapon-page .loadout-card-image {
-    height: 96px !important;
-}
-
-.selectweapon-page .loadout-card-image img {
-    max-height: 90px !important;
-}
-
-.selectweapon-page .loadout-card-info strong {
-    font-size: 11px !important;
-}
-
-.selectweapon-page .loadout-card-info span {
-    font-size: 10px !important;
-}
-
-@media (max-width: 1100px) {
-    .selectweapon-page .cs2-loadout {
-        grid-template-columns: 1fr !important;
-    }
-
-    .selectweapon-page .cs2-character-panel {
-        min-height: auto !important;
-    }
-}
-/* =========================
-   TEAM THEME SYSTEM
-   TR = LARANJA
-   CT = AZUL
-========================= */
-
-body.team-tr {
-    --team-color: #ff9f1a;
-    --team-color-2: #ff5a1f;
-    --team-rgb: 255, 159, 26;
-}
-
-body.team-ct {
-    --team-color: #38bdf8;
-    --team-color-2: #2563eb;
-    --team-rgb: 56, 189, 248;
-}
-
-/* Fundo geral com identidade do time */
-body.team-tr,
-body.team-ct {
-    background:
-        radial-gradient(
-            circle at 50% 12%,
-            rgba(var(--team-rgb), .14),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at top,
-            #172033 0%,
-            #0b0e13 48%,
-            #05070c 100%
-        ) !important;
-}
-
-/* Botões selecionados / abas ativas */
-body.team-tr .weapon-tab.active,
-body.team-ct .weapon-tab.active {
-    background: linear-gradient(
-        90deg,
-        var(--team-color),
-        var(--team-color-2)
-    ) !important;
-
-    color: #07111f !important;
-
-    box-shadow:
-        0 0 26px rgba(var(--team-rgb), .34),
-        0 12px 32px rgba(0,0,0,.35) !important;
-}
-
-/* Hover das abas */
-body.team-tr .weapon-tab:hover,
-body.team-ct .weapon-tab:hover {
-    border-color: rgba(var(--team-rgb), .45) !important;
-    box-shadow: 0 0 18px rgba(var(--team-rgb), .16);
-}
-
-/* Painel Loadout Atual */
-body.team-tr .cs2-loadout,
-body.team-ct .cs2-loadout {
-    background:
-        radial-gradient(
-            circle at top left,
-            rgba(var(--team-rgb), .16),
-            transparent 34%
-        ),
-        linear-gradient(
-            135deg,
-            rgba(20,31,50,.96),
-            rgba(8,12,22,.98)
-        ) !important;
-
-    border-color: rgba(var(--team-rgb), .18) !important;
-
-    box-shadow:
-        0 0 44px rgba(var(--team-rgb), .08),
-        0 24px 70px rgba(0,0,0,.42) !important;
-}
-
-/* Painel do personagem */
-body.team-tr .cs2-character-panel,
-body.team-ct .cs2-character-panel {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(var(--team-rgb), .16),
-            rgba(15,23,42,.92) 56%
-        ) !important;
-
-    border-color: rgba(var(--team-rgb), .16) !important;
-}
-
-/* Badge com nome do agente */
-body.team-tr .cs2-team-badge,
-body.team-ct .cs2-team-badge {
-    background: linear-gradient(
-        90deg,
-        rgba(var(--team-rgb), .95),
-        rgba(var(--team-rgb), .62)
-    ) !important;
-
-    color: #07111f !important;
-
-    box-shadow:
-        0 0 20px rgba(var(--team-rgb), .28) !important;
-}
-
-/* Cards do loadout */
-body.team-tr .loadout-card,
-body.team-ct .loadout-card {
-    border-color: rgba(var(--team-rgb), .11) !important;
-
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(var(--team-rgb), .08),
-            rgba(12,17,29,.96) 58%
-        ) !important;
-}
-
-body.team-tr .loadout-card:hover,
-body.team-ct .loadout-card:hover {
-    border-color: rgba(var(--team-rgb), .6) !important;
-
-    box-shadow:
-        0 0 24px rgba(var(--team-rgb), .18),
-        0 14px 32px rgba(0,0,0,.42) !important;
-}
-
-/* Card selecionado */
-body.team-tr .loadout-card.selected,
-body.team-ct .loadout-card.selected,
-body.team-tr .card.selected,
-body.team-ct .card.selected,
-body.team-tr .skin-card.selected,
-body.team-ct .skin-card.selected {
-    border-color: var(--team-color) !important;
-
-    box-shadow:
-        0 0 0 1px rgba(var(--team-rgb), .45),
-        0 0 28px rgba(var(--team-rgb), .28) !important;
-}
-
-/* Cards gerais de armas / skins */
-body.team-tr .weapon-grid-tabs .card:hover,
-body.team-ct .weapon-grid-tabs .card:hover,
-body.team-tr .skins-grid .skin-card:hover,
-body.team-ct .skins-grid .skin-card:hover {
-    border-color: rgba(var(--team-rgb), .55) !important;
-
-    box-shadow:
-        0 0 24px rgba(var(--team-rgb), .16),
-        0 14px 34px rgba(0,0,0,.4) !important;
-}
-
-/* Botão voltar */
-body.team-tr #back-to-team:hover,
-body.team-ct #back-to-team:hover {
-    border-color: rgba(var(--team-rgb), .45) !important;
-    box-shadow: 0 0 18px rgba(var(--team-rgb), .22) !important;
-}
-
-/* Botões aplicar T / CT na viewskin */
-body.team-tr .btn-yellow,
-body.team-ct .btn-yellow,
-body.team-tr .main-btn.btn-yellow,
-body.team-ct .main-btn.btn-yellow {
-    background: linear-gradient(
-        90deg,
-        var(--team-color),
-        var(--team-color-2)
-    ) !important;
-
-    color: #07111f !important;
-
-    box-shadow:
-        0 10px 28px rgba(var(--team-rgb), .18) !important;
-}
-
-/* Inputs / selects da viewskin */
-body.team-tr input:focus,
-body.team-tr select:focus,
-body.team-ct input:focus,
-body.team-ct select:focus {
-    border-color: var(--team-color) !important;
-    box-shadow: 0 0 0 1px rgba(var(--team-rgb), .22) !important;
-}
-
-.selectweapon-page .weapon-tabs {
-    position: relative;
-    z-index: 5;
-}
-/* FIX: menu de categorias cortando hover/borda */
-.selectweapon-page .weapon-tabs {
-    margin: 25px auto 30px auto !important;
-    padding: 16px 10px 18px !important;
-
-    overflow-x: auto !important;
-    overflow-y: visible !important;
-}
-
-/* mantém o loadout atual sem mexer em tamanho/posição */
-.selectweapon-page .cs2-loadout {
-    max-width: 1250px !important;
-    margin: 10px auto 40px !important;
-    padding: 22px !important;
-}
-/* FIX definitivo: hover/glow dos botões do menu cortando */
-.selectweapon-page .choose {
-    overflow: visible !important;
-}
-
-.selectweapon-page .weapon-tabs {
-    overflow: visible !important;
-    padding: 22px 12px !important;
-    margin: 12px auto 28px auto !important;
-}
-
-.selectweapon-page .weapon-tab {
-    position: relative !important;
-    z-index: 2 !important;
-}
-
-.selectweapon-page .weapon-tab:hover,
-.selectweapon-page .weapon-tab.active {
-    z-index: 20 !important;
 }

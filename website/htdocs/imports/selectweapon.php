@@ -552,8 +552,8 @@ foreach($gloves as $glove):
     $agent_model_url = str_replace('/', '-', $agent->model);
     ?>
     
-    <li class="weapon-tab-item tab-agents">
-        <button class="card"
+    <li class="weapon-tab-item tab-agents agent-card-item">
+    <button class="card agent-card"
                 onclick="location.href='<?= GetPrefix(); ?>skins/<?= $agent_team_slug; ?>/<?= $agent_model_url; ?>/'">
 
             <div class="imgbox">
